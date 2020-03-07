@@ -10,3 +10,5 @@ function get(championship) {
     return CupGetter();
   }
 }
+
+export { get }
