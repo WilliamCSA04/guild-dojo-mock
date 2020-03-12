@@ -1,12 +1,18 @@
 import { get } from "./Football";
 import * as BrazilianLeague from "./BrazilianLeague";
+import * as BrazilianCup from "./BrazilianCup";
 
 describe("get by championship", () => {
   test("get from Brazilian League must be called", () => {
-    const stub = jest.fn(get);
-    const LeagueGetterStub = jest.spyOn(BrazilianLeague, "get");
-    return stub("league").then(response => {
-      expect(LeagueGetterStub).toHaveBeenCalled();
+    const LeagueGetterSpy = jest.spyOn(BrazilianLeague, "get");
+    return get("league").then(response => {
+      expect(LeagueGetterSpy).toHaveBeenCalled();
+    });
+  });
+  test("get from Brazilian League must be called", () => {
+    const CupGetterSpy = jest.spyOn(BrazilianCup, "get");
+    return get("cup").then(response => {
+      expect(CupGetterSpy).toHaveBeenCalled();
     });
   });
 });
