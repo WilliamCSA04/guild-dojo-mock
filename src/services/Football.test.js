@@ -48,6 +48,20 @@ describe("get by championship", () => {
       expect(Array.isArray(response.matches)).toBeTruthy();
     });
   });
+  test("get('league') must return matches and teams as empty arrays if LeagueGetterSpy returns two empty arrays", () => {
+    LeagueGetterSpy.mockResolvedValue([[], []]);
+    return get("league").then(response => {
+      expect(response.teams.length).toBe(0);
+      expect(response.matches.length).toBe(0);
+    });
+  });
+  test("get('cup') returned value must have array on each key", () => {
+    CupGetterSpy.mockResolvedValue([[], []]);
+    return get("cup").then(response => {
+      expect(response.teams.length).toBe(0);
+      expect(response.matches.length).toBe(0);
+    });
+  });
   test("get('league') every team must have an id that is an number", () => {
     return get("league").then(response => {
       response.teams.forEach(team => {
