@@ -69,4 +69,14 @@ describe("get by championship", () => {
   test("get('') should throw an error", () => {
     expect(() => get("")).toThrow(Error);
   });
+  test("get('league') should call LeagueGetterSpy without args", () => {
+    return get("league").then(() => {
+      expect(LeagueGetterSpy).toHaveBeenCalledWith();
+    });
+  });
+  test("get('cup') should call CupGetterSpy without args", () => {
+    return get("cup").then(() => {
+      expect(CupGetterSpy).toHaveBeenCalledWith();
+    });
+  });
 });
