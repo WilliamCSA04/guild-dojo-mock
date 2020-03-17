@@ -79,4 +79,14 @@ describe("get by championship", () => {
       expect(CupGetterSpy).toHaveBeenCalledWith();
     });
   });
+  test("get('league') should call LeagueGetterSpy only once", () => {
+    return get("league").then(() => {
+      expect(LeagueGetterSpy).toHaveBeenCalledTimes(1);
+    });
+  });
+  test("get('cup') should call CupGetterSpy only once", () => {
+    return get("cup").then(() => {
+      expect(CupGetterSpy).toHaveBeenCalledTimes(1);
+    });
+  });
 });
