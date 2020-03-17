@@ -24,13 +24,13 @@ describe("get by championship", () => {
       expect(LeagueGetterSpy).not.toHaveBeenCalled();
     });
   });
-  test("get('league') must return an object with matches and games", () => {
+  test("get('league') must return an object with matches and teams", () => {
     return get("league").then(response => {
       expect(response).toHaveProperty("teams");
       expect(response).toHaveProperty("matches");
     });
   });
-  test("get('cup') must return an object with matches and games", () => {
+  test("get('cup') must return an object with matches and teams", () => {
     return get("cup").then(response => {
       expect(response).toHaveProperty("teams");
       expect(response).toHaveProperty("matches");
