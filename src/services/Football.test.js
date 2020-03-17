@@ -66,4 +66,7 @@ describe("get by championship", () => {
       });
     });
   });
+  test("get('') should throw an error", () => {
+    expect(() => get("")).toThrow(Error);
+  });
 });

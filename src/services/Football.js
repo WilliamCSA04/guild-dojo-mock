@@ -14,6 +14,8 @@ function get(championship) {
       const [teams, matches] = response;
       return { teams, matches };
     });
+  } else {
+    throw new Error();
   }
 }
 
