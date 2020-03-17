@@ -1,7 +1,6 @@
 import { Api, Routes } from "../client";
 
 export async function get() {
-  console.log(Api);
   const {
     brazilianCup: { teams, matches }
   } = Routes;
