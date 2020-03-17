@@ -50,4 +50,20 @@ describe("get by championship", () => {
       expect(Array.isArray(response.matches)).toBeTruthy();
     });
   });
+  test("get('league') every team must have an id that is an number", () => {
+    return get("league").then(response => {
+      response.teams.forEach(team => {
+        expect(team).toHaveProperty("id");
+        expect(team).toBe("number");
+      });
+    });
+  });
+  test("get('cup') every team must have an id that is an number", () => {
+    return get("cup").then(response => {
+      response.teams.forEach(team => {
+        expect(team).toHaveProperty("id");
+        expect(team).toBe("number");
+      });
+    });
+  });
 });
