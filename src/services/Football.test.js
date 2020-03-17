@@ -37,14 +37,12 @@ describe("get by championship", () => {
     });
   });
   test("get('league') returned value must have array on each key", () => {
-    LeagueGetterSpy.mockResolvedValue([[], []]);
     return get("league").then(response => {
       expect(Array.isArray(response.teams)).toBeTruthy();
       expect(Array.isArray(response.matches)).toBeTruthy();
     });
   });
   test("get('cup') returned value must have array on each key", () => {
-    CupGetterSpy.mockResolvedValue([[], []]);
     return get("cup").then(response => {
       expect(Array.isArray(response.teams)).toBeTruthy();
       expect(Array.isArray(response.matches)).toBeTruthy();
@@ -54,7 +52,7 @@ describe("get by championship", () => {
     return get("league").then(response => {
       response.teams.forEach(team => {
         expect(team).toHaveProperty("id");
-        expect(team).toBe("number");
+        expect(Number.isInteger(team.id)).toBeTruthy();
       });
     });
   });
@@ -62,7 +60,7 @@ describe("get by championship", () => {
     return get("cup").then(response => {
       response.teams.forEach(team => {
         expect(team).toHaveProperty("id");
-        expect(team).toBe("number");
+        expect(Number.isInteger(team.id)).toBeTruthy();
       });
     });
   });
